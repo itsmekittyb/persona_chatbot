@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.env/
+.venv/
+
+# macOS
+.DS_Store
+
+# Model directories (these are large and shouldn't be pushed)
+src/models/gptneo-persona-finetune/
+src/models/EleutherAI-gpt-neo-125M/
+src/models/base/
+src/models/basquiat/
+src/models/cobain/
+src/models/morrison/
+src/models/warhol/
+
+# Data files
+src/models/*.csv
+src/datasets/
+datasets/
+
+# Image cache or outputs
+src/images/
+images/
+
+# Logs and outputs
+*.log
+logs/
+output/
+outputs/
+
+# Streamlit cache
+.streamlit/
+.cache/
+
+# IDE/project files
+.vscode/
+.idea/
