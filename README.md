@@ -1,7 +1,7 @@
 <table>
   <tr>
     <td>
-      <img src="/User/bauerkitti/Desktop/Uni/GENAI/persona_chatbot/src/images/persona_chatbot_logo.png" alt="Project Logo" width="200"/>
+      <img src="src/images/persona_chatbot_logo.png" alt="Project Logo" width="200"/>
     </td>
     <td>
       <h1>PERSONA CHATBOT PROJECT</h1>
