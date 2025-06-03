@@ -198,10 +198,10 @@ st.markdown('<div class="desc">_Chat with four legendary artists and musicians i
 
 personas = ["basquiat", "cobain", "morrison", "warhol"]
 persona_images = {
-    "basquiat": "images/basquiat.png",
-    "cobain": "images/cobain.png",
-    "morrison": "images/morrison.jpg",
-    "warhol": "images/warhol.png"
+    "basquiat": "src/images/basquiat.png",
+    "cobain": "src/images/cobain.png",
+    "morrison": "src/images/morrison.jpg",
+    "warhol": "src/images/warhol.png"
 }
 persona_descriptions = {
     "basquiat": "Basquiat: The king of neo-expressionism, always raw and rebellious.",
