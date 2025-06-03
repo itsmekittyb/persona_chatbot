@@ -21,12 +21,12 @@ If you have ethical concerns or believe any content is inappropriate, please ope
 
 ## Datasets
 
-All persona datasets are in the `datasets/` folder:
+During training the following datasets were used (not available on GitHub):
 - `warhol_data.csv`
 - `basquiat_data.csv`
 - `cobain_data.csv`
 - `morrison_data.csv`
-- plus there is also a question-answer template which was used for the fine-tuning
+- `all_persona_qa.jsonl`
 
 Each CSV has the following columns:
 - **Source**: Origin of the quote/text (e.g. Book, Interview)
