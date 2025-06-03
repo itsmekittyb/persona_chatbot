@@ -24,10 +24,6 @@ src/models/*.csv
 src/datasets/
 datasets/
 
-# Image cache or outputs
-src/images/
-images/
-
 # Logs and outputs
 *.log
 logs/
