@@ -1,8 +1,8 @@
 import os.path
-
 import streamlit as st
 import torch
 from transformers import AutoTokenizer, AutoModelForCausalLM
+from huggingface_hub import hf_hub_download
 
 # --- App Configuration ---
 st.set_page_config(page_title="APCH - AI-Powered Coffee House", layout="centered")
@@ -240,42 +240,25 @@ st.markdown('<span style="color:#eee">Type your message and have a delightful co
 
 # --- Model Loading (Cached for performance) ---
 @st.cache_resource
-def load_model(model_relative_path):
+def load_model(repo_id="itsmekittyb/gptneo-persona-finetune"):
     """
     Loads the tokenizer and model from the specified directory.
     Uses st.cache_resource to load only once.
     """
-    try:
-        device = torch.device(
-            "cuda" if torch.cuda.is_available() else
-            "mps" if torch.backends.mps.is_available() else
-            "cpu"
-        )
+    device = torch.device(
+        "cuda" if torch.cuda.is_available() else
+        "mps" if torch.backends.mps.is_available() else
+        "cpu"
+    )
 
-        current_script_dir = os.path.dirname(os.path.abspath(__file__))
-        absolute_model_path = os.path.join(current_script_dir, model_relative_path)
+    tokenizer = AutoTokenizer.from_pretrained(repo_id)
+    tokenizer.pad_token = tokenizer.eos_token
+    model = AutoModelForCausalLM.from_pretrained(repo_id).to(device)
+    model.eval()
 
-        if not os.path.isdir(absolute_model_path):
-            raise FileNotFoundError(f"Model directory not found: {absolute_model_path}")
-
-        expected_files = ['config.json', 'tokenizer_config.json', 'vocab.json']
-        if not any(os.path.exists(os.path.join(absolute_model_path, f)) for f in expected_files):
-            st.warning(
-                f"Warning: Missing expected model/tokenizer config files in {absolute_model_path}. This might cause issues.")
-
-        tokenizer = AutoTokenizer.from_pretrained(absolute_model_path, local_files_only=True)
-        tokenizer.pad_token = tokenizer.eos_token
-        model = AutoModelForCausalLM.from_pretrained(absolute_model_path, local_files_only=True).to(device)
-        model.eval()
-
-        return tokenizer, model, device
-    except Exception as e:
-        st.error(f"Error loading model or tokenizer: {e}")
-        st.exception(e)
-        st.stop()
-
-model_dir_path = "models/gptneo-persona-finetune"
-tokenizer, model, device = load_model(model_dir_path)
+    return tokenizer, model, device
+    
+tokenizer, model, device = load_model()
 
 def generate_reply(persona_name, prompt, max_length=128):
     formatted_prompt = f"<|{persona_name}|> User: {prompt}\n"
