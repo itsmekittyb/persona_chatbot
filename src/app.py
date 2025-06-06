@@ -219,7 +219,6 @@ if "selected_persona" not in st.session_state:
 # --- Persona Selection UI (Sidebar)
 st.sidebar.header("Select a Persona")
 selected_persona_radio = st.sidebar.radio(
-    "Choose your artist:",
     personas,
     index=personas.index(st.session_state["selected_persona"]), # Set initial selection
     format_func=lambda x: x.replace('_', ' ').title(), # Capitalize for display
