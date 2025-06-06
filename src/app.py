@@ -217,7 +217,7 @@ if "selected_persona" not in st.session_state:
     st.session_state["selected_persona"] = personas[0]
 
 # --- Persona Selection UI (Sidebar)
-st.sidebar.header("Select a Persona")
+st.sidebar.header("Choose your artist:")
 selected_persona_radio = st.sidebar.radio(
     personas,
     index=personas.index(st.session_state["selected_persona"]), # Set initial selection
