@@ -50,5 +50,5 @@ streamlit run app.py
 
 ## Model Files
 
-**Note:** The Warhol model files are not included in this repository due to their size.
+**Note:** The model files are not included in this repository due to their size.
 - Contact the repository owner for access to the model files.
