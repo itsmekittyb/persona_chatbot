@@ -38,7 +38,7 @@ Each CSV has the following columns:
 
 ## Training
 
-Models are trained on the `Content` field, optionally using other columns for style conditioning.
+Models (ChatGPT-NEO 125M) are trained on the `Content` field, optionally using other columns for style conditioning.
 
 ## Chatbot
 
@@ -47,6 +47,10 @@ To run the chatbot:
 ```sh
 streamlit run app.py
 ```
+Or see: 
+
+https://apch-persona-chatbot.streamlit.app
+
 
 ## Model Files
 
